@@ -1,1 +1,77 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoltIX HEMS Dashboard</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>VoltIX HEMS</h1>
+      <span id="system-status" class="badge online">System Online</span>
+    </header>
+
+    <!-- Main Metrics Overview -->
+    <section class="metrics-grid">
+      <div class="card metric">
+        <h3>Power Load</h3>
+        <p class="value"><span id="power-val">0</span> W</p>
+      </div>
+      <div class="card metric">
+        <h3>Mains Voltage</h3>
+        <p class="value"><span id="voltage-val">230</span> V</p>
+      </div>
+      <div class="card metric">
+        <h3>Estimated Bill</h3>
+        <p class="value">₹ <span id="bill-val">0</span></p>
+      </div>
+      <div class="card metric">
+        <h3>Water Tank</h3>
+        <p class="value"><span id="tank-val">0</span>%</p>
+      </div>
+    </section>
+
+    <!-- Room Appliance Status & Controls -->
+    <section class="section-title">Appliance Controls</section>
+    <section class="controls-grid">
+      <div class="card control-card">
+        <div>
+          <h4>Bedroom Light</h4>
+          <span id="bed-light-status" class="sub-text">OFF</span>
+        </div>
+        <button class="btn" onclick="toggleRelay('bedLight')">Toggle</button>
+      </div>
+
+      <div class="card control-card">
+        <div>
+          <h4>Bedroom Fan</h4>
+          <span id="bed-fan-status" class="sub-text">OFF</span>
+        </div>
+        <button class="btn" onclick="toggleRelay('bedFan')">Toggle</button>
+      </div>
+
+      <div class="card control-card">
+        <div>
+          <h4>Water Pump</h4>
+          <span id="pump-status" class="sub-text">STANDBY</span>
+        </div>
+        <button class="btn" onclick="toggleRelay('pump')">Toggle</button>
+      </div>
+
+      <div class="card control-card">
+        <div>
+          <h4>Vacation Mode</h4>
+          <span id="vacation-status" class="sub-text">INACTIVE</span>
+        </div>
+        <button class="btn alert-btn" onclick="toggleRelay('vacation')">Switch</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
